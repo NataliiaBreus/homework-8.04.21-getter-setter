@@ -1,33 +1,39 @@
 
 'use strict';
-class RangeValidator (from, to) {
-  this.from = from;
-  this.to = to;
-  if (typeof from !== "number" || typeof to !== "number"){
+class RangeValidator  {
+  /**
+   * 
+   * @param {*} fromNumber 
+   * @param {*} toNumber 
+   */
+  constructor (fromNumber, toNumber) 
+  if (typeof fromNumber !== "number" || typeof toNumber !== "number"){
     throw new TypeError ("This symbol is not a number!");
   }
 function validate (number) {
-  if number >= this.from && number <= this.to{
+  if number >= this.fromNumber && number <= this.toNumber{
     return number;
   }
   throw new TypeError ("Wrong number!");
 }
+this.fromNumber = fromNumber;
+this.toNumber = toNumber;
 
-  set from (newFrom) {
-    this._from = newFrom;
+  set fromNumber (newFromNumber) {
+    this._fromNumber = newFromNumber;
   };
-  get from (){
-    return this._from;
+  get fromNumber (){
+    return this._fromNumber;
   };
-  set to (newTo) {
-    this._to = newTo;
+  set toNumber (newToNumber) {
+    this._toNumber = newToNumber;
   };
-  get to(){
-    return this._to;
+  get toNumber(){
+    return this._toNumber;
   }
-};
+}
 get Range(){
-return `${this.from} ${this.to}`;
+return `${this.fromNumber} ${this.toNumber}`;
 }
 
 
