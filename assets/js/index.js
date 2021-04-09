@@ -3,39 +3,43 @@
 class RangeValidator  {
   /**
    * 
-   * @param {*} fromNumber 
-   * @param {*} toNumber 
+   * @param {*} from 
+   * @param {*} to 
    */
-  constructor (fromNumber, toNumber) 
-  if (typeof fromNumber !== "number" || typeof toNumber !== "number"){
-    throw new TypeError ("This symbol is not a number!");
+  constructor (from, to) {
+      this.from = from;
+      this.to = to;
   }
-function validate (number) {
-  if number >= this.fromNumber && number <= this.toNumber{
-    return number;
-  }
-  throw new TypeError ("Wrong number!");
+      set from (newFrom) {
+          if(typeof newFrom !== "number"){
+              throw new TypeError ("This symbol is not a number")
+          }
+        this._from = newFrom;
+      };
+      get from (){
+        return this._from;
+      };
+      set to (newTo) {
+          if (typeof newTo !== "number"){
+              throw new TypeError ("This symbol is not a number!")
+          }
+        this._to = newTo;
+      };
+      get to(){
+        return this._to;
+      }
+    
+    validate (number) {
+      if (number >= this.from && number <= this.to) {
+        return number;
+      }else {
+         throw new TypeError ("Wrong number!");
+      }
+    }
+    get range(){
+    return [from, to];
+    };
 }
-this.fromNumber = fromNumber;
-this.toNumber = toNumber;
 
-  set fromNumber (newFromNumber) {
-    this._fromNumber = newFromNumber;
-  };
-  get fromNumber (){
-    return this._fromNumber;
-  };
-  set toNumber (newToNumber) {
-    this._toNumber = newToNumber;
-  };
-  get toNumber(){
-    return this._toNumber;
-  }
-}
-get Range(){
-return `${this.fromNumber} ${this.toNumber}`;
-}
-
-
-  
-
+const numbers = new RangeValidator (5, 15);
+console.log(numbers);
